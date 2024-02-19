@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "led_controller"
+version = "0.1.0"
+description = "Circuit Python LED controller"
+authors = ["Jonathan Cook <jcookbme@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "led_controller"}]
+repository = "https://github.com/JonathanCBU/led_controller"
+homepage = "https://github.com/JonathanCBU/led_controller"
+
+[tool.poetry.scripts]
+ci = "led_controller.__ci__:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+toml = "^0.10.2"
+
+[tool.poetry.group.dev.dependencies]
+tox = "^4.0.16"
+virtualenv = "20.21.0"
+bandit = "^1.7.1"
+black = {version = "^22.12.0", allow-prereleases = true}
+isort = {extras = ["colors"], version = "^5.11.4"}
+mypy = "^0.991"
+mypy-extensions = "^0.4.3"
+pylint = "^2.15.9"
+toml = "^0.10.2"
+ipython = "*"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 88
+color = true
+exclude = "autogen"
+
+[tool.isort]
+py_version = 310
+line_length = 88
+profile = "black"
+color_output = true
+indent = 4
+
+[tool.robotidy]
+verbose = false
+
+[tool.mypy]
+python_version = "3.10"
+pretty = true
+show_traceback = true
+color_output = true
+ignore_missing_imports = true
+strict = true
+
+[tool.pylint]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
